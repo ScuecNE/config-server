@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/ScuecNE/Spring-Cloud-Demo
+          search-paths: spring-cloud-project/config-profiles
+    bus:
+      enabled: true
+      trace:
+        enabled: true
+
+server:
+  port: 10510
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10210/eureka/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh
